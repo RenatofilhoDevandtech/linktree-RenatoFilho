@@ -1,0 +1,111 @@
+@import url(./effect.css);
+:root {
+    --primary-color: #2b89c1;
+    --secondary-color: #1d5f88;
+    --background-gradient: linear-gradient(135deg, #192a56, #27aea7);
+    --text-color: white;
+    --container-bg: rgba(75, 83, 88, 0.9);
+    --border-radius: 20px;
+    --font-family: "Nunito", sans-serif;
+}
+
+* {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--background-gradient);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: -1;
+}
+
+body::before {
+    top: 10%;
+    left: 20%;
+}
+
+body::after {
+    bottom: 10%;
+    right: 20%;
+}
+
+.container-main {
+    background: var(--container-bg);
+    width: 380px;
+    padding: 50px 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+}
+
+.container-image img {
+    width: 110px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+}
+
+.container-infos {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.container-infos h1 {
+    font-weight: 900;
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.container-infos h2 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #aef4ff;
+}
+
+.container-easter-egg {
+    font-size: 12px;
+    opacity: 0.5;
+    display: none;
+}
+
+.container-social ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.container-social li {
+    margin: 10px 0;
+}
+
+.container-social a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-color);
+    padding: 12px 0;
+    display: block;
+    background: var(--primary-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.container-social a:hover {
+    background: var(--secondary-color);
+    transform: scale(1.05);
+}
