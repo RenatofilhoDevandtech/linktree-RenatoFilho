@@ -2,11 +2,13 @@
 :root {
     --primary-color: #2b89c1;
     --secondary-color: #1d5f88;
+    --accent-color: #4ecae9; /* Representa energia do esporte */
     --background-gradient: linear-gradient(135deg, #192a56, #27aea7);
     --text-color: white;
     --container-bg: rgba(75, 83, 88, 0.9);
     --border-radius: 20px;
     --font-family: "Nunito", sans-serif;
+    --heading-font-family: "Oswald", sans-serif; /* Fonte forte para destacar esportes */
 }
 
 * {
@@ -23,6 +25,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    overflow: hidden; /* Evitar rolagem indesejada */
 }
 
 body::before,
@@ -31,9 +34,10 @@ body::after {
     position: absolute;
     width: 300px;
     height: 300px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 2px dashed var(--accent-color);
     border-radius: 50%;
     z-index: -1;
+    animation: pulse 4s infinite;
 }
 
 body::before {
@@ -46,43 +50,61 @@ body::after {
     right: 20%;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1.1);
+        opacity: 0.4;
+    }
+}
+
 .container-main {
     background: var(--container-bg);
-    width: 380px;
-    padding: 50px 30px;
+    width: 90%; /* Adaptativo */
+    max-width: 400px;
+    padding: 60px 30px;
     border-radius: var(--border-radius);
     text-align: center;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
+    box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    border: 2px solid var(--accent-color); /* Adiciona destaque esportivo */
 }
 
 .container-image img {
-    width: 110px;
+    width: 130px;
     border-radius: 50%;
-    border: 3px solid var(--primary-color);
+    border: 4px solid var(--primary-color);
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
 }
 
 .container-infos {
-    margin-top: 15px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .container-infos h1 {
-    font-weight: 900;
-    font-size: 24px;
-    color: var(--primary-color);
+    font-family: var(--heading-font-family);
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--accent-color); /* Cor vibrante para destacar esportes */
 }
 
 .container-infos h2 {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 18px;
     color: #aef4ff;
 }
 
 .container-easter-egg {
-    font-size: 12px;
-    opacity: 0.5;
-    display: none;
+    font-size: 14px;
+    opacity: 0.6;
+    display: block; /* Deixado visível para maior interação */
+    font-style: italic;
+    margin-top: 20px;
+    color: var(--accent-color);
 }
 
 .container-social ul {
@@ -91,21 +113,67 @@ body::after {
 }
 
 .container-social li {
-    margin: 10px 0;
+    margin: 12px 0;
 }
 
 .container-social a {
     text-decoration: none;
     font-weight: 600;
     color: var(--text-color);
-    padding: 12px 0;
+    padding: 14px 0;
     display: block;
     background: var(--primary-color);
-    border-radius: 8px;
+    border-radius: 12px;
     transition: all 0.3s ease;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.3);
 }
 
 .container-social a:hover {
-    background: var(--secondary-color);
-    transform: scale(1.05);
+    background: var(--accent-color); /* Efeito dinâmico ligado ao tema */
+    transform: scale(1.08);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        overflow: auto; /* Para evitar cortes em telas menores */
+        padding: 20px;
+    }
+
+    .container-main {
+        padding: 30px 15px;
+    }
+
+    .container-image img {
+        width: 100px; /* Menor em dispositivos */
+    }
+
+    .container-infos h1 {
+        font-size: 22px;
+    }
+
+    .container-infos h2 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container-main {
+        padding: 15px 10px;
+        text-align: center;
+    }
+
+    .container-infos h1 {
+        font-size: 18px;
+    }
+
+    .container-infos h2 {
+        font-size: 14px;
+    }
+
+    .container-social a {
+        font-size: 12px;
+        padding: 10px;
+    }
 }
